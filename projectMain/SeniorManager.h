@@ -1,0 +1,24 @@
+#pragma once
+#include "Employee.h"
+#include "Heading.h"
+
+#include <vector>
+
+class SeniorManager : public Employee, public Heading {
+private:
+    vector<double> projectBudgets;
+    size_t totalEmployees;
+    double headingBonusFactor;
+
+public:
+    SeniorManager(size_t id, const string& name, size_t worktime, const vector<double>& projectBudgets, size_t totalEmployees, double headingBonusFactor);
+    double calculateSalary() override;
+    double calcHeadingBonus(size_t numSubordinates) override;
+    void addProjectBudget(double budget);
+    double getTotalBudget() const;
+    size_t getTotalEmployees() const;
+    void setTotalEmployees(size_t totalEmployees);
+    double getHeadingBonusFactor() const;
+    void setHeadingBonusFactor(double headingBonusFactor);
+    void print() const override;
+};
