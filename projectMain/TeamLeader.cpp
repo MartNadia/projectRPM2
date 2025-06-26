@@ -2,7 +2,9 @@
 using namespace std;
 
 TeamLeader::TeamLeader(size_t id, const string& name, size_t worktime, double hourlyRate, double projectContribution, double projectBudget, size_t numSubordinates, double headingBonusFactor)
-    : Employee(id, name, worktime), hourlyRate(hourlyRate), projectContribution(projectContribution), projectBudget(projectBudget), numSubordinates(numSubordinates), headingBonusFactor(headingBonusFactor) {}
+    : Employee(id, name, worktime), hourlyRate(hourlyRate), projectContribution(projectContribution), projectBudget(projectBudget), numSubordinates(numSubordinates), headingBonusFactor(headingBonusFactor) {
+    salary = calculateSalary();
+}
 
 double TeamLeader::calculateSalary() {
     return calcBase(hourlyRate, getWorktime()) + calcBonus() + calcBudgetPart(projectBudget, projectContribution) + calcProAdditions() + calcHeadingBonus(numSubordinates);
@@ -79,4 +81,5 @@ void TeamLeader::print() const {
     cout << "Project Budget: " << projectBudget << endl;
     cout << "Number of Subordinates: " << numSubordinates << endl;
     cout << "Heading Bonus Factor: " << headingBonusFactor << endl;
+    cout << "Salary: " << salary << endl;
 }
