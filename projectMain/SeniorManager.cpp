@@ -2,7 +2,10 @@
 using namespace std;
 
 SeniorManager::SeniorManager(size_t id, const string& name, size_t worktime, const vector<double>& projectBudgets, size_t totalEmployees, double headingBonusFactor)
-    : Employee(id, name, worktime), projectBudgets(projectBudgets), totalEmployees(totalEmployees), headingBonusFactor(headingBonusFactor) {}
+    : Employee(id, name, worktime), projectBudgets(projectBudgets), totalEmployees(totalEmployees), headingBonusFactor(headingBonusFactor) {
+
+    salary = calculateSalary();
+}
 
 double SeniorManager::calculateSalary() {
     return (0.15*getTotalBudget()) + calcHeadingBonus(totalEmployees);
@@ -45,5 +48,6 @@ void SeniorManager::print() const {
     cout << "Total Budget: " << getTotalBudget() << endl;
     cout << "Total Employees: " << totalEmployees << endl;
     cout << "Heading Bonus Factor: " << headingBonusFactor << endl;
+    cout << "Salary: " << salary << endl;
 
 }
