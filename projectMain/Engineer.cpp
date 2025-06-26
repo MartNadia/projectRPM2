@@ -2,7 +2,9 @@
 using namespace std;
 
 Engineer::Engineer(size_t id, const string& name, size_t worktime, double hourlyRate, double projectContribution, double projectBudget)
-    : Employee(id, name, worktime), hourlyRate(hourlyRate), projectContribution(projectContribution), projectBudget(projectBudget) {}
+    : Employee(id, name, worktime), hourlyRate(hourlyRate), projectContribution(projectContribution), projectBudget(projectBudget) {
+    salary = calculateSalary();
+}
 
 double Engineer::calculateSalary() {
     return calcBase(hourlyRate, getWorktime()) + calcBonus() + calcBudgetPart(projectBudget, projectContribution) + calcProAdditions();
@@ -62,4 +64,5 @@ void Engineer::print() const {
     cout << "Hourly Rate: " << hourlyRate << endl;
     cout << "Project Contribution: " << projectContribution << endl;
     cout << "Project Budget: " << projectBudget << endl;
+    cout << "Salary: " << salary << endl;
 }
