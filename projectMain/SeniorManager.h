@@ -9,6 +9,8 @@ private:
     vector<double> projectBudgets;
     size_t totalEmployees;
     double headingBonusFactor;
+    double salary;
+
 
 public:
     SeniorManager(size_t id, const string& name, size_t worktime, const vector<double>& projectBudgets, size_t totalEmployees, double headingBonusFactor);
@@ -20,5 +22,9 @@ public:
     void setTotalEmployees(size_t totalEmployees);
     double getHeadingBonusFactor() const;
     void setHeadingBonusFactor(double headingBonusFactor);
+    EmployeeType getEmployeeType() const override{
+        return EmployeeType::SENIORMANAGER;
+    };
     void print() const override;
+
 };
