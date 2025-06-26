@@ -7,6 +7,7 @@ private:
     double hourlyRate;
     double nightHourBonus;
     size_t nightHours;
+    double salary;
 
 public:
     Driver(size_t id, const string& name, size_t worktime, double hourlyRate, double nightHourBonus, size_t nightHours);
@@ -19,5 +20,8 @@ public:
     void setNightHourBonus(double nightHourBonus);
     size_t getNightHours() const;
     void setNightHours(size_t nightHours);
+    EmployeeType getEmployeeType() const override {
+        return EmployeeType::DRIVER;
+    }
     void print() const override;
 };
