@@ -2,7 +2,9 @@
 using namespace std;
 
 Tester::Tester(size_t id, const string& name, size_t worktime, double hourlyRate, double projectContribution, double projectBudget, size_t bugsFound, double bugFixBonus)
-    : Employee(id, name, worktime), hourlyRate(hourlyRate), projectContribution(projectContribution), projectBudget(projectBudget), bugsFound(bugsFound), bugFixBonus(bugFixBonus) {}
+    : Employee(id, name, worktime), hourlyRate(hourlyRate), projectContribution(projectContribution), projectBudget(projectBudget), bugsFound(bugsFound), bugFixBonus(bugFixBonus) {
+    salary = calculateSalary();
+}
 
 double Tester::calculateSalary() {
     return calcBase(hourlyRate, getWorktime()) + calcBonus() + calcBudgetPart(projectBudget, projectContribution) + calcProAdditions();
@@ -71,4 +73,5 @@ void Tester::print() const {
     cout << "Project Budget: " << projectBudget << endl;
     cout << "Bugs Found: " << bugsFound << endl;
     cout << "Bug Fix Bonus: " << bugFixBonus << endl;
+    cout << "Salary: " << salary << endl;
 }
