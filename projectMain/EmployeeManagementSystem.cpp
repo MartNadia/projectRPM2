@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// --- Employee Management ---
+
 void EmployeeManagementSystem::addEmployee(EmployeeType type, size_t id, const string& name, size_t worktime,
     double arg1, double arg2, double arg3, size_t arg4) {
     Employee* newEmployee = Factory::createEmployee(type, id, name, worktime, arg1, arg2, arg3, arg4);
@@ -23,7 +23,6 @@ void EmployeeManagementSystem::removeEmployee(size_t id) {
     cout << "Employee with ID " << id << " not found." << endl;
 }
 
-// --- Project Management ---
 void EmployeeManagementSystem::createProject(const string& projectName) {
     projects.emplace_back(projectName);
 }
@@ -104,7 +103,7 @@ void EmployeeManagementSystem::transferEmployeeToProject(size_t employeeId, cons
     }
 }
 
-// --- Display and Search ---
+
 void EmployeeManagementSystem::displayAllEmployees() const {
     cout << "--- All Employees ---" << endl;
     for (const Employee* emp : employees) {
