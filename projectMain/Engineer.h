@@ -8,6 +8,7 @@ private:
     double hourlyRate;
     double projectContribution;
     double projectBudget;
+    double salary;
 
 public:
     Engineer(size_t id, const string& name, size_t worktime, double hourlyRate, double projectContribution, double projectBudget);
@@ -22,5 +23,8 @@ public:
     void setProjectContribution(double projectContribution);
     double getProjectBudget() const;
     void setProjectBudget(double projectBudget);
+    EmployeeType getEmployeeType() const override {
+        return EmployeeType::ENGINEER;
+    }
     void print() const override;
 };
