@@ -11,6 +11,7 @@ private:
     double projectBudget;
     size_t numSubordinates;
     double headingBonusFactor;
+    double salary;
 
 public:
     TeamLeader(size_t id, const string& name, size_t worktime, double hourlyRate, double projectContribution, double projectBudget, size_t numSubordinates, double headingBonusFactor);
@@ -30,5 +31,8 @@ public:
     void setNumSubordinates(size_t numSubordinates);
     double getHeadingBonusFactor() const;
     void setHeadingBonusFactor(double headingBonusFactor);
+    EmployeeType getEmployeeType() const override {
+        return EmployeeType::TEAMLEADER;
+    }
     void print() const override;
 };
