@@ -8,6 +8,7 @@ private:
     double projectBudget;
     size_t numProjectMembers;
     double headingBonusFactor;
+    double salary;
 
 public:
     ProjectManager(size_t id, const string& name, size_t worktime, double projectBudget, size_t numProjectMembers, double headingBonusFactor);
@@ -21,5 +22,8 @@ public:
     void setNumProjectMembers(size_t numProjectMembers);
     double getHeadingBonusFactor() const;
     void setHeadingBonusFactor(double headingBonusFactor);
+        EmployeeType getEmployeeType() const override {
+        return EmployeeType::PROJECTMANAGER;
+    }
     void print() const override;
 };
