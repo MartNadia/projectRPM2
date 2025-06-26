@@ -1,9 +1,10 @@
 #include "Driver.h"
-#include <iostream> // Нужно для std::cout
+#include <iostream> 
 using namespace std;
 
 Driver::Driver(unsigned __int64 id, const string& name, unsigned __int64 worktime, double hourlyRate, double nightHourBonus, unsigned __int64 nightHours)
     : Employee(id, name, worktime), hourlyRate(hourlyRate), nightHourBonus(nightHourBonus), nightHours(nightHours){
+    salary = calculateSalary();
 }
 
 double Driver::calculateSalary() {
@@ -47,4 +48,5 @@ void Driver::print() const {
     cout << "Hourly Rate: " << hourlyRate << endl;
     cout << "Night Hour Bonus: " << nightHourBonus << endl;
     cout << "Night Hours: " << nightHours << endl;
+    cout << "Salary: " << salary << endl;
 }
