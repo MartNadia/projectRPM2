@@ -9,6 +9,7 @@ private:
     double projectContribution;
     double projectBudget;
     double earlyCompletionBonus;
+    double salary;
 
 public:
     Programmer(size_t id, const std::string& name, size_t worktime, double hourlyRate, double projectContribution, double projectBudget, double earlyCompletionBonus);
@@ -25,5 +26,8 @@ public:
     void setProjectBudget(double projectBudget);
     double getEarlyCompletionBonus() const;
     void setEarlyCompletionBonus(double earlyCompletionBonus);
+    EmployeeType getEmployeeType() const override {
+        return EmployeeType::PROGRAMMER;
+    }
     void print() const override;
 };
