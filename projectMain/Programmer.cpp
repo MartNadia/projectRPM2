@@ -2,7 +2,9 @@
 using namespace std;
 
 Programmer::Programmer(size_t id, const string& name, size_t worktime, double hourlyRate, double projectContribution, double projectBudget, double earlyCompletionBonus)
-    : Employee(id, name, worktime), hourlyRate(hourlyRate), projectContribution(projectContribution), projectBudget(projectBudget), earlyCompletionBonus(earlyCompletionBonus) {}
+    : Employee(id, name, worktime), hourlyRate(hourlyRate), projectContribution(projectContribution), projectBudget(projectBudget), earlyCompletionBonus(earlyCompletionBonus) {
+    salary = calculateSalary();
+}
 
 double Programmer::calculateSalary() {
     return calcBase(hourlyRate, getWorktime()) + calcBonus() + calcBudgetPart(projectBudget, projectContribution) + calcProAdditions();
@@ -62,4 +64,5 @@ void Programmer::print() const {
     cout << "Project Contribution: " << projectContribution << endl;
     cout << "Project Budget: " << projectBudget << endl;
     cout << "Early Completion Bonus: " << earlyCompletionBonus << endl;
+    cout << "Salary: " << salary << endl;
 }
