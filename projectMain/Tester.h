@@ -10,6 +10,7 @@ private:
     double projectBudget;
     size_t bugsFound;
     double bugFixBonus;
+    double salary;
 
 public:
     Tester(size_t id, const string& name, size_t worktime, double hourlyRate, double projectContribution, double projectBudget, size_t bugsFound, double bugFixBonus);
@@ -28,5 +29,8 @@ public:
     void setBugsFound(size_t bugsFound);
     double getBugFixBonus() const;
     void setBugFixBonus(double bugFixBonus);
+    EmployeeType getEmployeeType() const override {
+        return EmployeeType::TESTER;
+    }
     void print() const override;
 };
