@@ -3,6 +3,7 @@ using namespace std;
 
 Personal::Personal(size_t id, const string& name, size_t worktime, double hourlyRate)
     : Employee(id, name, worktime), hourlyRate(hourlyRate) {
+    salary = calculateSalary();
 }
 
 double Personal::calculateSalary(){
@@ -28,4 +29,5 @@ void Personal::setHourlyRate(double hourlyRate) {
 void Personal::print() const {
     Employee::print();
     cout << "Hourly Rate: " << hourlyRate << endl;
+    cout << "Salary: " << salary << endl;
 }
