@@ -2,7 +2,9 @@
 using namespace std;
 
 ProjectManager::ProjectManager(size_t id, const string& name, size_t worktime, double projectBudget, size_t numProjectMembers, double headingBonusFactor)
-    : Employee(id, name, worktime), projectBudget(projectBudget), numProjectMembers(numProjectMembers), headingBonusFactor(headingBonusFactor) {}
+    : Employee(id, name, worktime), projectBudget(projectBudget), numProjectMembers(numProjectMembers), headingBonusFactor(headingBonusFactor) {
+    salary = calculateSalary();
+}
 
 double ProjectManager::calculateSalary() {
     return calcBudgetPart(projectBudget, 0.22) + calcProAdditions() + calcHeadingBonus(numProjectMembers);
@@ -49,4 +51,5 @@ void ProjectManager::print() const {
     cout << "Project Budget: " << projectBudget << endl;
     cout << "Number of Project Members: " << numProjectMembers << endl;
     cout << "Heading Bonus Factor: " << headingBonusFactor << endl;
+    cout << "Salary: " << salary << endl;
 }
