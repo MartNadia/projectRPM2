@@ -14,7 +14,7 @@ enum class EmployeeType {
 	TEAMLEADER,
 	PROJECTMANAGER,
 	SENIORMANAGER,
-	UNKNOWN // Default Value
+	UNKNOWN // Default
 };
 
 class Employee
@@ -24,10 +24,11 @@ protected:
 	string name;
 	size_t worktime;
 	double hourlyRate;
+	EmployeeType employeeType;
 
 public:
 	Employee();
-	Employee(size_t id, const string& name, size_t worktime);
+	Employee(size_t id, const string& name, size_t worktime, EmployeeType type = EmployeeType::UNKNOWN);
 
 	virtual ~Employee() {};
 
@@ -42,8 +43,11 @@ public:
 	void setWorktime(size_t worktime);
 	void setHourlyRate(double payment);
 
-	virtual double calculateSalary() = 0;
+	virtual double calculateSalary()  = 0;
 
 	virtual void print() const;
+
+	virtual EmployeeType getEmployeeType() const;
+	void setEmployeeType(EmployeeType type);
 };
 
