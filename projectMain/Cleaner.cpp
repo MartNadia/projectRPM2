@@ -2,7 +2,9 @@
 using namespace std;
 
 Cleaner::Cleaner(size_t id, const string& name, size_t worktime, double hourlyRate)
-    : Employee(id, name, worktime), hourlyRate(hourlyRate){}
+    : Employee(id, name, worktime), hourlyRate(hourlyRate) {
+    salary = calculateSalary();
+}
 
 double Cleaner::calculateSalary() {
     return calcBase(hourlyRate, getWorktime()) + calcBonus();
@@ -35,4 +37,5 @@ void Cleaner::setHourlyRate(double hourlyRate) {
 void Cleaner::print() const {
     Employee::print();
     cout << "Hourly Rate: " << hourlyRate << endl;
+    cout << "Salary: " << salary << endl;
 }
